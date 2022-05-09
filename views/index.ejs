@@ -67,6 +67,8 @@
         <div class="row align-items-center">
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                 <div class="message-box">
+                    <%if(courses[0]){%>
+
 
                     <h2><%=courses[0].name%></h2>
                     <p><%=courses[0].description%></p>
@@ -74,6 +76,8 @@
 
 
                     <a href="/courses/<%=courses[0].slug%>" class="hover-btn-new orange"><span>Learn More</span></a>
+
+                    <%}%>
                 </div><!-- end messagebox -->
             </div><!-- end col -->
 
@@ -92,12 +96,14 @@
 
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                 <div class="message-box">
+                    <%if(courses[1]){%>
                     <h2><%=courses[1].name%></h2>
                     <p><%=courses[1].description%></p>
 
 
 
                     <a href="/courses/<%=courses[1].slug%>" class="hover-btn-new orange"><span>Learn More</span></a>
+                    <%}%>
                 </div><!-- end messagebox -->
             </div><!-- end col -->
 
@@ -112,49 +118,49 @@
                 <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i
                         class="flaticon-study"></i></span>
                 <p class="stat_count"><%=totalStudents%></p>
-                <h3>Students</h3>
-            </div><!-- end col -->
+                    <h3>Students</h3>
+                </div><!-- end col -->
 
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i
-                        class="flaticon-online"></i></span>
-                <p class="stat_count"><%=totalCourses%></p>
-                <h3>Courses</h3>
-            </div><!-- end col -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i
+                            class="flaticon-online"></i></span>
+                    <p class="stat_count"><%=totalCourses%></p>
+                    <h3>Courses</h3>
+                </div><!-- end col -->
 
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i
-                        class="flaticon-years"></i></span>
-                <p class="stat_count"><%=totalTeachers%></p>
-                <h3>Teachers</h3>
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i
+                            class="flaticon-years"></i></span>
+                    <p class="stat_count"><%=totalTeachers%></p>
+                    <h3>Teachers</h3>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
 
-<div class="parallax section dbcolor">
-    <div class="container">
-        <div class="row logos">
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_01.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_02.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_03.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_04.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_05.png" alt="" class="img-repsonsive"></a>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                <a href="#"><img src="images/logo_06.png" alt="" class="img-repsonsive"></a>
-            </div>
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+    <div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_01.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_02.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_03.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_04.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_05.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_06.png" alt="" class="img-repsonsive"></a>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
 
-<%- include('partials/_footer.ejs')   %>
+    <%- include('partials/_footer.ejs')   %>
