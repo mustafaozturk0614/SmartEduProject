@@ -40,9 +40,7 @@ global.userIN = null
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(methodOvveride('_method', {
-    methods: ['POST', 'GET'],
-}))
+
 
 app.use(session({
     cookie: { maxAge: 60000 },
@@ -61,6 +59,9 @@ app.use((req, res, next) => {
     res.locals.flashMessages = req.flash();
     next();
 })
+app.use(methodOvveride('_method', {
+    methods: ['POST', 'GET'],
+}))
 
 app.use('/', pageRoute);
 

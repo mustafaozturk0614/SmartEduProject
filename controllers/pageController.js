@@ -1,14 +1,26 @@
 const req = require("express/lib/request");
+const Course = require('../model/Course')
+const User = require('../model/User')
 
 const nodemailer = require('nodemailer')
 
 
 exports.getAboutPage = (req, res) => {
-    res.status(200).render('index', { page_name: 'about' });
+    res.status(200).render('about', { page_name: 'about' });
 };
-exports.getIndexPage = (req, res) => {
-    console.log(req.session.userID)
-    res.status(200).render('index', { page_name: 'index' });
+
+exports.getIndexPage = async (req, res) => {
+    const courses = await Course.find().sort('-createdAt').limit(2)
+    const totalCourses = await Course.find().countDocuments();
+    const totalStudents = await User.countDocuments({ role: 'student' })
+    const totalTeachers = await User.countDocuments({ role: 'teacher' })
+    res.status(200).render('index', {
+        page_name: 'index',
+        courses,
+        totalCourses,
+        totalStudents,
+        totalTeachers
+    });
 };
 exports.getRegisterPAge = (req, res) => {
     res.status(200).render('register', { page_name: 'register' });

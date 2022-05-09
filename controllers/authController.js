@@ -56,12 +56,41 @@ exports.logoutUser = async (req, res) => {
 exports.getDashbordPage = async (req, res) => {
     const categories = await Category.find()
     const user = await User.findOne({ _id: req.session.userID }).populate('courses')
+    const users = await User.find()
     const courses = await Course.find({ user: req.session.userID })
     res.status(200).render('dashboard', {
         page_name: 'dashboard',
         user: user,
+        users: users,
         categories: categories,
         courses, courses
     });
 };
+exports.getAdminDashbordPage = async (req, res) => {
+    const categories = await Category.find()
+    const user = await User.findOne({ _id: req.session.userID }).populate('courses')
+    const users = await User.find()
+    const courses = await Course.find({ user: req.session.userID })
+    res.status(200).render('dashboard', {
+        page_name: 'dashboard',
+        user: user,
+        users: users,
+        categories: categories,
+        courses, courses
+    });
+};
+exports.deleteUser = async (req, res) => {
+    try {
 
+        await User.findByIdAndRemove(req.params.id)
+        await Course.deleteMany({ user: req.params.id })
+
+        res.status(200).redirect('/users/dashboard');
+
+    } catch (error) {
+        res.status(400).json({
+            status: 'fail',
+            error,
+        });
+    }
+};
