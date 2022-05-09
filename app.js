@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
+const methodOvveride = require('method-override')
 
 const pageRoute = require('./routes/pageRoute')
 const courseRoute = require('./routes/courseRoute')
@@ -39,6 +40,9 @@ global.userIN = null
 app.use(express.static("public"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOvveride('_method', {
+    methods: ['POST', 'GET'],
+}))
 
 app.use(session({
     cookie: { maxAge: 60000 },
